@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Ссылка на Google Fonts -->
+    <style>
+        body {
+            background-color: #ffffff; /* Белый фон */
+            font-family: 'Roboto', sans-serif; /* Шрифт */
+            color: #372579; /* Цвет текста */
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center; /* Центрирование заголовка */
+            color: #372579; /* Цвет заголовка */
+            margin-bottom: 20px; /* Отступ снизу */
+        }
+        .container {
+            max-width: 600px; /* Ограничение ширины контейнера */
+            margin: auto; /* Центрирование контейнера */
+            padding: 20px;
+            border: 2px solid #372579; /* Цвет границы */
+            border-radius: 8px; /* Закругленные углы */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Нежная тень */
+            background-color: #f9f9f9; /* Светлый фон для контейнера */
+        }
+        p {
+            font-size: 18px; /* Размер шрифта для параграфов */
+            margin: 10px 0; /* Отступы для параграфов */
+        }
+        a {
+            display: block; /* Блочное отображение для центрирования */
+            text-align: center; /* Центрирование ссылки */
+            margin-top: 20px; /* Отступ сверху для ссылки */
+            padding: 10px; /* Отступы для ссылки */
+            background-color: #372579; /* Цвет фона ссылки */
+            color: white; /* Цвет текста ссылки */
+            text-decoration: none; /* Удаление подчеркивания */
+            border-radius: 5px; /* Закругленные углы для ссылки */
+        }
+        a:hover {
+            background-color: #4a3a8a; /* Темнее при наведении */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Профиль пользователя</h1>
+        <p>Имя пользователя: {{ user.username }}</p>
+        <p>Полное имя: {{ user.first_name }} {{ user.last_name }}</p>
+        <p>Электронная почта: {{ user.email }}</p>
+        <p>Группа: BFI2201</p> <!-- {{ user.studentprofile.group }} -->
+        <a href="{% url 'index' %}">Вернуться в библиотеку</a>
+    </div>
+</body>
+</html>

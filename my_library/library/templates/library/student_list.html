@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список студентов</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Link to Google Fonts -->
+    <style>
+        body {
+            background-color: #ffffff; /* White background */
+            font-family: 'Roboto', sans-serif; /* Font style */
+            color: #372579; /* Text color */
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center; /* Center the heading */
+            color: #372579; /* Heading color */
+        }
+        table {
+            width: 100%; /* Full width */
+            border-collapse: collapse; /* Collapse borders */
+            margin-top: 20px; /* Space above the table */
+        }
+        th, td {
+            border: 1px solid #372579; /* Border color */
+            padding: 10px; /* Padding for cells */
+            text-align: left; /* Align text to the left */
+        }
+        th {
+            background-color: #372579; /* Header background color */
+            color: white; /* Header text color */
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Light background for even rows */
+        }
+        a {
+            color: #372579; /* Link color */
+            text-decoration: none; /* Remove underline */
+        }
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Список студентов и их задолженные книги</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Студент</th>
+                <th>Задолженные книги</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student, books in student_books.items %}
+                <tr>
+                    <td>{{ student.user }}</td>
+                    <td>
+                        {% if books %}
+                            <ul>
+                                {% for borrowed in books %}
+                                    <li>
+                                        {{ borrowed.book.title }}
+                                        (Дедлайн: {{ borrowed.deadline }})
+                                        <a href="{% url 'delete_borrowed_book' borrowed.id %}">Удалить</a> <!-- Кнопка удаления -->
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            Нет задолженных книг
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

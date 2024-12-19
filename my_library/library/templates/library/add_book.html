@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить книгу</title>
+    <style>
+        body {
+            background-color: #ffffff; /* Белый фон */
+            font-family: Arial, sans-serif; /* Шрифт */
+            color: #372579; /* Цвет текста */
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px; /* Ограничение ширины контейнера */
+            margin: auto; /* Центрирование контейнера */
+            padding: 20px;
+            border: 2px solid #372579; /* Цвет границы */
+            border-radius: 8px; /* Закругленные углы */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Нежная тень */
+        }
+        h2 {
+            text-align: center; /* Центрирование заголовка */
+            color: #372579; /* Цвет заголовка */
+        }
+        button {
+            background-color: #372579; /* Цвет фона кнопки */
+            color: white; /* Цвет текста кнопки */
+            border: none; /* Удаление границы */
+            padding: 10px 20px; /* Отступы для кнопки */
+            border-radius: 5px; /* Закругленные углы для кнопки */
+            cursor: pointer; /* Указатель курсора при наведении */
+            font-size: 16px; /* Размер шрифта */
+        }
+        button:hover {
+            background-color: #4a3a8a; /* Темнее при наведении */
+        }
+        a {
+            color: #372579; /* Цвет ссылки */
+            text-decoration: none; /* Удаление подчеркивания */
+        }
+        a:hover {
+            text-decoration: underline; /* Подчеркивание при наведении */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Добавить новую книгу</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Добавить книгу</button>
+        </form>
+        <p>
+            <a href="{% url 'index' %}">Вернуться в библиотеку</a>
+        </p>
+    </div>
+</body>
+</html>

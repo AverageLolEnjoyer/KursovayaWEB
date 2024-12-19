@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления заимствованными книгами</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Link to Google Fonts -->
+    <style>
+        body {
+            background-color: #ffffff; /* White background */
+            font-family: 'Roboto', sans-serif; /* Font style */
+            color: #372579; /* Text color */
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center; /* Center the heading */
+            color: #372579; /* Heading color */
+        }
+        ul {
+            list-style-type: none; /* Remove default list styling */
+            padding: 0; /* Remove padding */
+            max-width: 600px; /* Limit the width of the list */
+            margin: auto; /* Center the list */
+        }
+        li {
+            background-color: #f9f9f9; /* Light background for list items */
+            border: 1px solid #372579; /* Border color */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px; /* Padding for list items */
+            margin: 10px 0; /* Space between items */
+        }
+        a {
+            color: #372579; /* Link color */
+            text-decoration: none; /* Remove underline */
+            display: block; /* Block display for centering */
+            text-align: center; /* Center the link */
+            margin-top: 20px; /* Space above the link */
+            font-size: 16px; /* Font size */
+        }
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Ваши заимствованные книги</h1>
+    <ul>
+        {% for book in borrowed_books %}
+            <li>{{ book.book.title }} - Дата возврата: {{ book.deadline }}</li>
+        {% empty %}
+            <li>У вас нет заимствованных книг.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'index' %}">Назад к библиотеке</a>
+</body>
+</html>

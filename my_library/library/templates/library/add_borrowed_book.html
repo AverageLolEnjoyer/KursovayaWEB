@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить заимствованную книгу</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Ссылка на Google Fonts -->
+    <style>
+        body {
+            background-color: #ffffff; /* Белый фон */
+            font-family: 'Roboto', sans-serif; /* Шрифт */
+            color: #372579; /* Цвет текста */
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center; /* Центрирование заголовка */
+            color: #372579; /* Цвет заголовка */
+        }
+        form {
+            max-width: 600px; /* Ограничение ширины формы */
+            margin: auto; /* Центрирование формы */
+            padding: 20px;
+            border: 2px solid #372579; /* Цвет границы */
+            border-radius: 8px; /* Закругленные углы */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Нежная тень */
+            background-color: #f9f9f9; /* Светлый фон для формы */
+        }
+        button {
+            background-color: #372579; /* Цвет фона кнопки */
+            color: white; /* Цвет текста кнопки */
+            border: none; /* Удаление границы */
+            padding: 10px 20px; /* Отступы для кнопки */
+            border-radius: 5px; /* Закругленные углы для кнопки */
+            cursor: pointer; /* Указатель курсора при наведении */
+            font-size: 16px; /* Размер шрифта */
+            display: block; /* Блочное отображение для центрирования */
+            margin: 20px auto; /* Центрирование кнопки */
+        }
+        button:hover {
+            background-color: #4a3a8a; /* Темнее при наведении */
+        }
+        a {
+            color: #372579; /* Цвет ссылки */
+            text-decoration: none; /* Удаление подчеркивания */
+            display: block; /* Блочное отображение для центрирования */
+            text-align: center; /* Центрирование ссылки */
+            margin-top: 10px; /* Отступ сверху для ссылки */
+        }
+        a:hover {
+            text-decoration: underline; /* Подчеркивание при наведении */
+        }
+    </style>
+</head>
+<body>
+    <h1>Добавить заимствованную книгу</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Добавить заимствованную книгу</button>
+    </form>
+    <a href="{% url 'index' %}">Вернуться к списку книг</a>
+</body>
+</html>

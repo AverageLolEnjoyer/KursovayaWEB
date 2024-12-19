@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book.title }}</title>
+    <style>
+        body {
+            background-color: #ffffff; /* White background */
+            font-family: 'Roboto', sans-serif; /* Font style */
+            color: #372579; /* Text color */
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center; /* Center the heading */
+            color: #372579; /* Heading color */
+        }
+        p {
+            font-size: 18px; /* Font size for paragraphs */
+            margin: 10px 0; /* Space above and below paragraphs */
+        }
+        a {
+            display: inline-block; /* Inline block for padding */
+            margin-top: 20px; /* Space above the link */
+            padding: 10px 15px; /* Padding for the link */
+            background-color: #372579; /* Background color for the link */
+            color: white; /* Text color for the link */
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px; /* Rounded corners */
+        }
+        a:hover {
+            background-color: #4a3a8a; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ book.title }}</h1>
+    <p>Автор: {{ book.author }}</p>
+    <p>Статус: {% if book.available %} Доступно {% else %} Недоступно {% endif %}</p>
+    <a href="{% url 'index' %}">Вернуться на главную</a>
+</body>
+</html>
